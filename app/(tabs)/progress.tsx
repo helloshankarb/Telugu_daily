@@ -2,16 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { TrendingUp, Award, Target, Calendar } from 'lucide-react-native';
-import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import { useTheme } from '@/hooks/useTheme';
 
 export default function ProgressScreen() {
-  let [fontsLoaded] = useFonts({
-    'Poppins-Regular': Poppins_400Regular,
-    'Poppins-Medium': Poppins_500Medium,
-    'Poppins-SemiBold': Poppins_600SemiBold,
-  });
-
   const { theme } = useTheme();
   const [currentDay] = useState(5);
   const [totalSentences] = useState(250); // 5 days × 50 sentences
@@ -44,12 +37,6 @@ export default function ProgressScreen() {
     { day: 'Sat', sentences: 0, completed: false },
     { day: 'Sun', sentences: 0, completed: false },
   ];
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
-
 
   return (
     <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>

@@ -2,16 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Switch } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { User, Settings, Volume2, Moon, Palette, Trophy } from 'lucide-react-native';
-import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import { useTheme } from '@/hooks/useTheme';
 
 export default function ProfileScreen() {
-  let [fontsLoaded] = useFonts({
-    'Poppins-Regular': Poppins_400Regular,
-    'Poppins-Medium': Poppins_500Medium,
-    'Poppins-SemiBold': Poppins_600SemiBold,
-  });
-
   const { isNightMode, toggleNightMode, theme } = useTheme();
 
   const [settings, setSettings] = useState({
@@ -46,10 +39,6 @@ export default function ProfileScreen() {
     { id: 4, title: 'Night Owl', icon: '🌙', unlocked: false, description: 'Learn for 7 consecutive days' },
     { id: 5, title: 'Master Student', icon: '🎓', unlocked: false, description: 'Master 500 sentences' },
   ];
-
-  if (!fontsLoaded) {
-    return null;
-  }
 
   return (
     <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>

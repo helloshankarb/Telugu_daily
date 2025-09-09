@@ -3,20 +3,11 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'rea
 import { LinearGradient } from 'expo-linear-gradient';
 import { Play, RotateCcw, CircleCheck as CheckCircle, Circle, Trophy, Target } from 'lucide-react-native';
 import * as Speech from 'expo-speech';
-import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
-import { NotoSansTelugu_400Regular } from '@expo-google-fonts/noto-sans-telugu';
 import { getSentencesByDay } from '@/data/sentences';
 import { useTheme } from '@/hooks/useTheme';
 import BannerAd from '@/components/BannerAd';
 
 export default function HomeScreen() {
-  let [fontsLoaded] = useFonts({
-    'Poppins-Regular': Poppins_400Regular,
-    'Poppins-Medium': Poppins_500Medium,
-    'Poppins-SemiBold': Poppins_600SemiBold,
-    'NotoSansTelugu-Regular': NotoSansTelugu_400Regular,
-  });
-
   const { theme } = useTheme();
   const [currentDay] = useState(1);
   const [completedSentences, setCompletedSentences] = useState<{ [key: number]: boolean }>({});
@@ -80,10 +71,6 @@ export default function HomeScreen() {
       }
     );
   };
-
-  if (!fontsLoaded) {
-    return null;
-  }
 
   return (
     <View style={styles.container}>

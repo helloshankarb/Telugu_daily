@@ -3,19 +3,10 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'rea
 import { LinearGradient } from 'expo-linear-gradient';
 import { Play, ChevronDown, ChevronRight, Lock, Clock as Unlock } from 'lucide-react-native';
 import * as Speech from 'expo-speech';
-import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
-import { NotoSansTelugu_400Regular } from '@expo-google-fonts/noto-sans-telugu';
 import { sentences } from '@/data/sentences';
 import { useTheme } from '@/hooks/useTheme';
 
 export default function PreviousScreen() {
-  let [fontsLoaded] = useFonts({
-    'Poppins-Regular': Poppins_400Regular,
-    'Poppins-Medium': Poppins_500Medium,
-    'Poppins-SemiBold': Poppins_600SemiBold,
-    'NotoSansTelugu-Regular': NotoSansTelugu_400Regular,
-  });
-
   const { theme } = useTheme();
   const [currentDay] = useState(5); // Demo: showing as if user is on day 5
   const [expandedDays, setExpandedDays] = useState<{ [key: number]: boolean }>({});
@@ -59,10 +50,6 @@ export default function PreviousScreen() {
   const isDayUnlocked = (day: number) => {
     return day <= currentDay;
   };
-
-  if (!fontsLoaded) {
-    return null;
-  }
 
   return (
     <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>

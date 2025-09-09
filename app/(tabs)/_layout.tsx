@@ -1,8 +1,5 @@
 import { Tabs } from 'expo-router';
 import { Chrome as Home, BookOpen, ChartBar as BarChart3, User } from 'lucide-react-native';
-import { useFonts } from 'expo-font';
-import { Poppins_500Medium } from '@expo-google-fonts/poppins';
-import { ActivityIndicator } from 'react-native';
 
 // Define the icon props type
 type TabBarIconProps = {
@@ -12,14 +9,6 @@ type TabBarIconProps = {
 };
 
 export default function TabLayout() {
-  const [fontsLoaded] = useFonts({
-    'Poppins-Medium': Poppins_500Medium,
-  });
-
-  if (!fontsLoaded) {
-    return <ActivityIndicator />;
-  }
-
   return (
     <Tabs
       screenOptions={{
