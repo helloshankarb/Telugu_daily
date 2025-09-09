@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Home, BookOpen, BarChart3, User } from 'lucide-react-native';
+import { Chrome as Home, BookOpen, ChartBar as BarChart3, User } from 'lucide-react-native';
 import { useFonts } from 'expo-font';
 import { ActivityIndicator } from 'react-native';
 
