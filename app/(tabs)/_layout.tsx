@@ -12,7 +12,7 @@ type TabBarIconProps = {
 
 export default function TabLayout() {
   const [fontsLoaded] = useFonts({
-    'Poppins-Medium': require('../../assets/fonts/Poppins-Medium.ttf'),
+    'Poppins-Medium': require('../../../assets/fonts/Poppins-Medium.ttf'),
   });
 
   if (!fontsLoaded) {
