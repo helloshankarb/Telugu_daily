@@ -7,7 +7,6 @@ import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } 
 import { NotoSansTelugu_400Regular } from '@expo-google-fonts/noto-sans-telugu';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { ThemeProvider } from '@/hooks/useTheme';
-import { initializeAds } from '@/utils/adInitializer';
 
 export default function RootLayout() {
   useFrameworkReady();
@@ -23,11 +22,6 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    // Initialize ads (platform-specific)
-    initializeAds().catch(error => {
-      console.log('Ad initialization error:', error);
-    });
-
     if (fontsLoaded) {
       // Start transition after fonts are loaded
       setTimeout(() => {

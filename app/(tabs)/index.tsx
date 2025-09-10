@@ -5,7 +5,6 @@ import { Play, RotateCcw, CircleCheck as CheckCircle, Circle, Trophy, Target } f
 import * as Speech from 'expo-speech';
 import { getSentencesByDay } from '@/data/sentences';
 import { useTheme } from '@/hooks/useTheme';
-import BannerAd from '@/components/BannerAd';
 
 export default function HomeScreen() {
   const { theme } = useTheme();
@@ -112,10 +111,9 @@ export default function HomeScreen() {
             const isCompleted = completedSentences[sentence.id];
             const viewCount = viewedCount[sentence.id] || 0;
             const sentenceNumber = index + 1;
-            const shouldShowAd = sentenceNumber === 10 || sentenceNumber === 20 || sentenceNumber === 30 || sentenceNumber === 40 || sentenceNumber === 50;
             
             return (
-              <React.Fragment key={sentence.id}>
+              <View key={sentence.id}>
                 <View style={styles.sentenceCard}>
                   <View style={styles.cardHeader}>
                     <Text style={styles.sentenceNumber}>#{sentenceNumber}</Text>
@@ -157,15 +155,7 @@ export default function HomeScreen() {
                     Viewed {viewCount} times
                   </Text>
                 </View>
-                
-                {shouldShowAd && (
-                  <BannerAd 
-                    position={sentenceNumber} 
-                    adUnitId="YOUR_BANNER_AD_UNIT_ID_HERE"
-                    appId="YOUR_APP_ID_HERE"
-                  />
-                )}
-              </React.Fragment>
+              </View>
             );
           })}
         </View>
